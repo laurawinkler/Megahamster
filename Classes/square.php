@@ -1,7 +1,7 @@
 <?php
-require_once 'room.php';
+require_once 'AbstractRoom.php';
 
-class square extends room
+class Square extends AbstractRoom
 {
     protected $length;
     protected $width;
@@ -9,19 +9,19 @@ class square extends room
 
     /**
      * square constructor.
+     * @param string $name
+     * @param string $price
+     * @param array $equipment
      * @param $length
      * @param $width
      * @param $height
      */
-    public function __construct(string $name, string $price, string $equipment, $length, $width, $height)
+    public function __construct(string $name, string $price, array $equipment, $length, $width, $height)
     {
         $this->length = $length;
         $this->width = $width;
         $this->height = $height;
-        $this->name = $name;
-        $this->price = $price;
-        $this->equipment = $equipment;
-        parent::__construct($name, $price, $equipment);
+        parent::__construct($name, $price,$equipment);
     }
 
     /**
@@ -31,11 +31,39 @@ class square extends room
     {
         return $this->length . 'cm x ' . $this->width . 'cm x ' . $this->height . 'cm';
     }
-
-
-    public function getArea()
+    public function getEquipmentAsString():string
     {
-        return $this->width * $this->length;
+        $ar = $this->getEquipment();
+        $text = "";
+        foreach ($ar as $item){
+            $text.= $item.'<br>';
+        }
+        return $text;
     }
 
+    public function getArea(){
+
+return $this->width * $this->length;
+    }
+
+
+
+    public function toHTML()
+    { $name = $this->getName();
+        $price = $this->getPrice();
+        $equipment = $this->getEquipmentAsString();
+        $sizes = $this->getSizes();
+        $area = $this->getArea();
+        $text = <<<ENDE
+             <div class = "products">
+            <h1>$name</h1>
+            <p> Price: EUR $price</p>
+            <p>Special Equipment:<br>
+             $equipment
+            <p>Sizes: $sizes</p>
+            <p>Area: $area cm^2</p>
+            </div>
+ENDE;
+        return $text;
+    }
 }

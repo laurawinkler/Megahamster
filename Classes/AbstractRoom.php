@@ -1,12 +1,12 @@
 <?php
 
-class Room
+abstract class AbstractRoom
 {
     protected $name;
     protected $price;
     protected $equipment;
 
-    public function __construct($name, $price, $equipment)
+    public function __construct(string $name, float $price, array $equipment)
     {
         $this->name = $name;
         $this->price = $price;
@@ -22,9 +22,9 @@ class Room
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getEquipment()
+    public function getEquipment(): array
     {
         return $this->equipment;
     }
@@ -32,7 +32,7 @@ class Room
     /**
      * @return float
      */
-    public function getPrice()
+    public function getPrice():float
     {
         return $this->price;
     }
@@ -42,19 +42,8 @@ class Room
         return $this->getName() . ' ' . $this->getPrice();
     }
 
-    public function toHTML()
-    {
-        $name = $this->getName();
-        $price = $this->getPrice();
-        $equipment = $this->getEquipment();
-        $text = <<<ENDE
-             <div class = "products">
-            <h1>$name</h1>
-            <p> EUR $price</p>
-            <p>Special Equipment:<br>
-$equipment</p>
-            </div>
-ENDE;
-        return $text;
-    }
+    abstract public function toHTML();
+    abstract public function getArea();
+    abstract public function getSizes();
+
 }
