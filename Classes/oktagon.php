@@ -25,7 +25,7 @@ class Oktagon extends AbstractRoom
     /**
      * @return float
      */
-    public function getSizes()
+    public function getSizes() : float
     {
         return $this->sidelength . ' cm';
     }
@@ -44,7 +44,7 @@ class Oktagon extends AbstractRoom
         }
         return $text;
     }
-    public function toHTML()
+    public function toHTML() : string
     {
         $name = $this->getName();
         $price = $this->getPrice();
