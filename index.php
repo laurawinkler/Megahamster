@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
-require 'classes/Room.php';
-require 'classes/Oktagon.php';
-require 'classes/Square.php';
+require 'vendor/autoload.php';
+use WEBT1920\Megahamster\Oberklassen as Oberklassen;
+use WEBT1920\Megahamster\VerwendeteRooms\Oktagon as Oktagon;
+use WEBT1920\Megahamster\VerwendeteRooms\Square as Square;
 ?>
 <html lang="de">
 <head>

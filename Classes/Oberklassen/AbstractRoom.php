@@ -1,18 +1,16 @@
 <?php
-
+namespace WEBT1920\Megahamster\Oberklassen;
 abstract class AbstractRoom
 {
     protected $name;
     protected $price;
     protected $equipment;
-
     public function __construct(string $name, float $price, array $equipment)
     {
         $this->name = $name;
         $this->price = $price;
         $this->equipment = $equipment;
     }
-
     /**
      * @return string
      */

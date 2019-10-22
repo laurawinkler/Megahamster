@@ -1,0 +1,9 @@
+{
+    "name": "webt1920/megahamster",
+    "description": "Autoload initiate",
+    "type": "project",
+    "autoload": {
+        "psr-4": {"WEBT1920\\Megahamster\\":"Classes"}
+    },
+    "require": {}
+}

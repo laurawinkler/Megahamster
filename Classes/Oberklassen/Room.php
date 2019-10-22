@@ -1,5 +1,5 @@
 <?php
-
+namespace WEBT1920\Megahamster\Oberklassen;
 class Room
 {
     protected $name;

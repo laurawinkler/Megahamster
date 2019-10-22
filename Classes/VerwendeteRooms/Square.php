@@ -1,5 +1,8 @@
 <?php
-require_once 'AbstractRoom.php';
+namespace WEBT1920\Megahamster\VerwendeteRooms;
+
+require 'vendor/autoload.php';
+use WEBT1920\Megahamster\Oberklassen\AbstractRoom as AbstractRoom;
 
 class Square extends AbstractRoom
 {
@@ -45,9 +48,6 @@ class Square extends AbstractRoom
 
 return $this->width * $this->length;
     }
-
-
-
     public function toHTML()
     { $name = $this->getName();
         $price = $this->getPrice();
